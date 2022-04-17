@@ -9,10 +9,14 @@ sealed class ApiResult <out T> (val status: AppStatus, val data: T?, val message
         data = _data,
         message = null
     )
-
     data class Error(val exception: String): ApiResult<Nothing>(
         status = AppStatus.ERROR,
         data = null,
         message = exception
+    )
+    data class Loading<out R>(val _data: R?): ApiResult<R>(
+        status = AppStatus.LOADING,
+        data = _data,
+        message = "Loading..."
     )
 }

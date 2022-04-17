@@ -19,13 +19,14 @@ class BusStopsViewModel: ViewModel() {
     val stopsUIStateObservable: LiveData<StopsUIState> get() = _stopsUIStateObservable
 
     @OptIn(InternalCoroutinesApi::class)
-    private fun getBusStopsList(){
+    fun getBusStopsList(){
         viewModelScope.launch {
             Repository.updateBusStatusData()
                 .map { result ->
                     when (result) {
                         is ApiResult.Success<*> -> StopsUIState.Success(result.data?.llegadas!!)
                         is ApiResult.Error -> StopsUIState.Error(result.message!!)
+                        is ApiResult.Loading<*> -> StopsUIState.Loading()
                     }
                 }
                 /*.collect {

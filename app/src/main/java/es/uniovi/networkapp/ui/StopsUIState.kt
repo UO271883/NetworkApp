@@ -6,4 +6,5 @@ import es.uniovi.networkapp.state.AppStatus
 sealed class StopsUIState (val state: AppStatus) {
     data class Success (val llegadas: Llegadas): StopsUIState(AppStatus.SUCCESS)
     data class Error (val message: String): StopsUIState(AppStatus.ERROR)
+    data class Loading (val loading: Boolean = true): StopsUIState(AppStatus.LOADING)
 }

@@ -7,7 +7,7 @@ import es.uniovi.networkapp.R
 import es.uniovi.networkapp.databinding.SimpleListItemBinding
 import es.uniovi.networkapp.model.Llegada
 
-class BusStatusHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class BusStatusViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     val itemBinding = SimpleListItemBinding.bind(itemView)
     fun bind(llegada: Llegada) {
