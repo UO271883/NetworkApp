@@ -24,6 +24,5 @@ data class Llegada(
         override fun areContentsTheSame(oldItem: Llegada, newItem: Llegada): Boolean {
             return oldItem === newItem
         }
-
     }
 }

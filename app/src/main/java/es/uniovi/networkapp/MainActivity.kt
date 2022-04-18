@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     private val busStopsViewModel : BusStopsViewModel = BusStopsViewModel()
     private val refreshListener = SwipeRefreshLayout.OnRefreshListener { busStopsViewModel.getBusStopsList() }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         super.onOptionsItemSelected(item)
         when(item.itemId) {
             R.id.refresh ->  {
-                Toast.makeText(this@MainActivity, "en teoria se acutualizaria xd", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, "se actualiza indeed", Toast.LENGTH_SHORT).show()
                 busStopsViewModel.getBusStopsList()
             }
         }
